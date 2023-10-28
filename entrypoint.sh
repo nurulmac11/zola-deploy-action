@@ -1,4 +1,4 @@
-#!/bin/bash
+t#!/bin/bash
 set -e
 set -o pipefail
 
@@ -62,7 +62,9 @@ main() {
 
     # needed or else we get 'doubious ...' error
     echo "Disable safe directory check"
-    git config --global --add safe.directory '*'
+    config_file=".gitconfig"
+    config_content="[safe]\ndirectory = *"
+    echo -e "$config_content" > "$config_file"
 
     if ${BUILD_THEMES}; then
         echo "Fetching themes"
