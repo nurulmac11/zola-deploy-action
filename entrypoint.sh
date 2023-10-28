@@ -65,6 +65,7 @@ main() {
     config_file=".gitconfig"
     config_content="[safe]\ndirectory = *"
     echo -e "$config_content" > "$config_file"
+    git config --global --add safe.directory /github/workspace
 
     if ${BUILD_THEMES}; then
         echo "Fetching themes"
